@@ -14,13 +14,13 @@ Prodyum projects rely on command-line automation for versioning, testing, and de
 
 | Tool | Standard version | Why it matters |
 |------|------------------|----------------|
-| Git | 2.51 (Aug 2025) | Includes sparse-checkout improvements and security fixes; optimised SSH certificate flows.?cite?turn8search0?turn8search6? |
-| .NET SDK | 9.0.306 STS | Official STS build for MAUI projects, C# 13, and workload sets.?cite?turn3search2?turn11search2? |
-| PowerShell | 7.5 | Ships with the latest .NET 9-based modules and PSResourceGet improvements.?cite?turn7search2? |
-| Azure CLI | 2.74+ | Compatible with Azure Linux 3.0 containers; Mariner 2.0 support ends 1 July 2025.?cite?turn9search0?turn13search4? |
-| Azure Developer CLI (azd) | 1.10 | Provides current commands for Azure Deployment Environments and GitHub Actions integrations.?cite?turn13search1? |
-| Node.js | 22 LTS | Long-term support for Vite-based frontend shells and dev servers.?cite?turn7search6? |
-| Python | 3.14 | Latest security-hardened runtime for data tooling and pipeline scripts.?cite?turn12search1? |
+| Git | 2.51 (Aug 2025) | Cruft-free multi-pack indexes, stash interchange format, and other performance updates keep large repos responsive for CI and release automation.citeturn5search7 |
+| .NET SDK | 9.0.306 STS | Current STS build for MAUI workloads; .NET 9 STS now receives 24 months of support, giving squads additional runway before upgrading.citeturn1search2turn7search2 |
+| PowerShell | 7.5 | GA release focuses on security, quality, and PSResourceGet enhancements while aligning with .NET 9.citeturn1search1 |
+| Azure CLI | 2.74+ | June 2025 release adds AKS improvements and ships with Azure Linux 3.0 base images used across Microsoft-hosted environments.citeturn1search3turn1search5 |
+| Azure Developer CLI (azd) | 1.19+ | October 2025 update introduces layered provisioning, `azd publish`, and updated authentication tooling.citeturn2search0 |
+| Node.js | 22 LTS | Node 22 entered LTS in October 2025; keep front-end shells on the 22.21.x channel for long-term support.citeturn5search5 |
+| Python | 3.14 | Latest stable release with free-threaded runtime, deferred annotations, and other platform updates for data and automation scripts.citeturn3search0 |
 
 ## 2. Installation commands
 
@@ -37,7 +37,7 @@ winget install --id Python.Python.3.14 -e
 choco install maui-check --pre
 ```
 
-Azure CLI and azd packages are published by Microsoft on Winget, so run `winget upgrade --all` monthly to stay current.?cite?turn13search4?turn13search1?
+Azure CLI and azd packages are published on winget; run `winget upgrade --all` each sprint to stay within the supported release bands.citeturn1search3turn2search3
 
 ### macOS (zsh)
 
@@ -52,7 +52,7 @@ brew install node@22
 brew install python@3.14
 ```
 
-The Homebrew formula tracks the Azure CLI 2.74+ STS channel; verify with `az version` after installation.?cite?turn13search4?
+The Homebrew formula tracks the Azure CLI 2.74+ channel—confirm `az version` after installation to ensure the CLI matches hosted images.citeturn1search3
 
 ### Linux (CI containers)
 
@@ -63,7 +63,7 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 curl -fsSL https://aka.ms/install-azd.sh | bash
 ```
 
-Keep CI runners on Azure Linux 3.0 or Ubuntu 24.04 images to align CLI versions with the support window.?cite?turn9search0?turn13search4?
+Keep CI runners on Azure Linux 3.0 or Ubuntu 24.04 images so CLI and azd versions mirror Microsoft-hosted agents.citeturn1search5turn2search0
 
 ## 3. Validation steps
 
@@ -73,18 +73,20 @@ dotnet --info              # 9.0.306, workload set enabled
 dotnet workload update --print-rollback
 pwsh -v                    # 7.5.x
 az version                 # >= 2.74
-azd version                # 1.10.x
+azd version                # 1.19.x
 node -v && npm -v          # v22.x / npm 10+
 python3 --version          # 3.14.x
 ```
 
-`dotnet workload update --print-rollback` exports workload-set versions to JSON so the rollback file stored at the repo root keeps CI and developer machines aligned.?cite?turn11search0?
+`dotnet workload update --print-rollback` now emits clean JSON output that you can commit for consistent workload sets across machines.citeturn2search8
 
 ## 4. Automation tips
 
-- **Script repositories:** Store PowerShell (`pwsh`) and Bash scripts separately under `tools/`; create Python virtual environments with `python -m venv .venv`.?cite?turn12search1?
-- **Update cadence:** Refresh Git, .NET SDK, Azure CLI, and Node each sprint; pin SDK versions in `global.json` because .NET 9 STS support lasts 18 months.?cite?turn3search0?turn3search2?
-- **Polyglot projects:** Use `dotnet new tool-manifest` and `dotnet tool restore` to keep local and CI tooling in sync; managing tools such as `maui-check` and `dotnet-format` via the manifest improves build consistency.?cite?turn11search2?
-- **Security scanning:** Enable Git 2.51 SSH certificate enhancements and signed commits; configure `git config --global gpg.program` to automate code-signing flows.?cite?turn8search6?
+- **Script repositories:** Store PowerShell (`pwsh`) and Bash scripts under `tools/`, and manage shared dependencies with `Directory.Packages.props` to keep automation modules in sync.citeturn9search0
+- **Update cadence:** Refresh Git, .NET SDK, Azure CLI, and Node each sprint; .NET 9 STS now receives 24 months of support, so pin `global.json` to 9.0.306 and document upgrade checkpoints.citeturn1search2turn7search2
+- **Polyglot projects:** Use `dotnet new tool-manifest` and `dotnet tool restore` so CLI tools such as `maui-check`, `dotnet-format`, and `azd` versions match across dev and CI.citeturn2search0turn2search8
+- **Security posture:** Adopt Git 2.51’s SHA-256 default hashing and reftable backend to harden history integrity while improving fetch/push throughput.citeturn5search1turn5search7
 
 This toolchain keeps Windows, macOS, and Linux environments on consistent versions. Track major upgrades in `docs/landing/roadmap.md` and add CI steps that verify the expected toolset.
+
+
