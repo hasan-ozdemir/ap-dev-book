@@ -1,0 +1,179 @@
+site_name: Prodyum Technology Playbook
+site_description: From-zero-to-hero guidance for .NET 9, .NET MAUI, Azure, and modern delivery practices.
+repo_name: devyum
+repo_url: https://github.com/hasan-ozdemir/devyum
+use_directory_urls: true
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - toc.integrate
+    - content.action.edit
+  language: en
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+
+nav:
+  - Home: _index.md
+  - Orientation & Navigation:
+      - Terminology Glossary: landing/glossary.md
+      - Roadmap & Release Notes: landing/roadmap.md
+  - Foundations:
+      - Foundations Overview: 00-foundations/index.md
+      - Environment Setup:
+          - System Requirements & Hardware Guidance: 00-foundations/environment/system-requirements.md
+          - IDE & Editor Setup: 00-foundations/environment/ide-setup.md
+          - CLI Toolchain & Automation: 00-foundations/environment/cli-toolchain.md
+          - Project Templates & Repository Layout: 00-foundations/environment/project-templates.md
+          - Tooling Setup Playbook: 00-foundations/tooling-setup.md
+      - C# Fundamentals:
+          - C# Language Tour Overview: 00-foundations/csharp-language-tour/index.md
+          - Program Structure & Entry Point: 00-foundations/csharp-language-tour/modules/program-structure.md
+          - Type System & Memory Management: 00-foundations/csharp-language-tour/modules/types-and-memory.md
+          - Control Flow & Error Handling: 00-foundations/csharp-language-tour/modules/control-flow.md
+          - Object-Oriented Foundations: 00-foundations/csharp-language-tour/modules/oop-basics.md
+          - Generics & Collections: 00-foundations/csharp-language-tour/modules/generics.md
+          - Async/Await & Concurrency: 00-foundations/csharp-language-tour/modules/async.md
+          - Language Members & Contracts: 00-foundations/csharp-language-tour/modules/language-members.md
+          - C# Keyword Compendium: 00-foundations/csharp-language-tour/modules/keyword-compendium.md
+          - C# Concept Atlas: 00-foundations/csharp-language-tour/modules/concept-compendium.md
+          - Learning Completion Checklist: 00-foundations/csharp-language-tour/modules/completion-checklist.md
+      - Advanced C# Mastery:
+          - Modern C# 13 Features: 00-foundations/csharp-language-tour/modules/csharp-13.md
+          - Upcoming C# 14 Features: 00-foundations/csharp-language-tour/modules/csharp-14-preview.md
+          - Reflection & Runtime Discovery: 00-foundations/csharp-language-tour/modules/reflection.md
+          - LINQ Fundamentals: 00-foundations/csharp-language-tour/modules/linq.md
+          - Native Interop & Unsafe Code: 00-foundations/csharp-language-tour/modules/unsafe.md
+          - Design Patterns with C#: 00-foundations/csharp-language-tour/modules/design-patterns.md
+          - Software Principles & Clean Code: 00-foundations/csharp-language-tour/modules/software-principles.md
+          - Refactoring Playbooks: 00-foundations/csharp-language-tour/modules/refactoring-playbooks.md
+          - Functional Approaches & LINQ: 00-foundations/csharp-language-tour/modules/functional-approaches.md
+          - Data Structures & Algorithms: 00-foundations/algorithms/data-structures-and-algorithms.md
+      - .NET Ecosystem:
+          - .NET Ecosystem Fundamentals: 00-foundations/dotnet-ecosystem.md
+          - .NET Platform History: 00-foundations/dotnet-history.md
+          - .NET 1.0 to 10.0 Innovations: 00-foundations/csharp-evolution.md
+  - Architecture Playbooks:
+      - Architecture Overview: 01-architecture/index.md
+      - Architecture Selection Guide: 01-architecture/modules/application-architectures.md
+      - N-Tier & Layered Architecture: 01-architecture/modules/n-tier-architecture.md
+      - Modular Monolith & Clean Architecture: 01-architecture/modules/modular-monolith-clean.md
+      - Domain-Driven Design: 01-architecture/modules/domain-driven-design.md
+      - Microservices Architecture: 01-architecture/modules/microservices.md
+      - Service-Oriented Architecture: 01-architecture/modules/service-oriented-architecture.md
+      - Event-Driven Architecture: 01-architecture/modules/event-driven.md
+      - CQRS & Event Sourcing: 01-architecture/modules/cqrs-event-sourcing.md
+      - Serverless Architecture: 01-architecture/modules/serverless.md
+      - Space-Based Architecture: 01-architecture/modules/space-based-architecture.md
+      - Microkernel Architecture: 01-architecture/modules/microkernel.md
+      - Pipes & Filters: 01-architecture/modules/pipes-and-filters.md
+      - Big Data & Analytics Architecture: 01-architecture/modules/big-data-analytics.md
+  - .NET MAUI Delivery:
+      - MAUI Delivery Overview: 02-mobile-maui/index.md
+      - Project Setup & Scaffolding: 02-mobile-maui/project-setup.md
+      - UX & UI Foundations:
+          - UI Components & Experience Design: 02-mobile-maui/ui-components.md
+          - UX Principles: 02-mobile-maui/ui-design/ux-foundations.md
+          - Responsive Layouts: 02-mobile-maui/ui-design/responsive-layouts.md
+          - MAUI Control Catalog:
+              - Catalog Overview: 02-mobile-maui/ui-controls/index.md
+              - Control Catalog Summary: 02-mobile-maui/ui-controls/catalog.md
+              - Text & Content Controls: 02-mobile-maui/ui-controls/text-display.md
+              - Input & Selection Controls: 02-mobile-maui/ui-controls/input-selection.md
+              - Lists & Collections Controls: 02-mobile-maui/ui-controls/lists-collections.md
+              - Navigation Pages: 02-mobile-maui/ui-controls/navigation-pages.md
+              - Layouts & Containers: 02-mobile-maui/ui-controls/layouts-containers.md
+              - Media, Web & Maps: 02-mobile-maui/ui-controls/media-web-maps.md
+              - Shapes & Drawing: 02-mobile-maui/ui-controls/shapes-drawing.md
+              - Command Surfaces: 02-mobile-maui/ui-controls/command-surfaces.md
+          - Composition Patterns: 02-mobile-maui/ui-controls/composition-patterns.md
+      - Data & Connectivity:
+          - Data Access & Offline Sync: 02-mobile-maui/data-access.md
+          - REST Connectivity Playbook: 02-mobile-maui/connectivity/rest-clients.md
+          - GraphQL & gRPC Clients: 02-mobile-maui/connectivity/graphql-clients.md
+          - Local Storage & Offline Data: 02-mobile-maui/local-storage-offline.md
+      - Platform Integration:
+          - Platform Integration & Device APIs: 02-mobile-maui/platform-apis.md
+          - Essentials Companion: 02-mobile-maui/essentials-guide.md
+          - .NET MAUI Community Toolkit: 02-mobile-maui/community-toolkit.md
+          - Dependency Injection & Platform Services: 02-mobile-maui/dependency-injection.md
+          - Platform SDK Playbooks:
+              - Overview: 02-mobile-maui/platform-sdk/index.md
+              - iOS Platform SDK: 02-mobile-maui/platform-sdk/ios-sdk-guide.md
+              - Android Platform SDK: 02-mobile-maui/platform-sdk/android-sdk-guide.md
+              - Windows Platform SDK: 02-mobile-maui/platform-sdk/windows-sdk-guide.md
+          - Authentication & Authorization: 02-mobile-maui/authentication-authorization.md
+          - Performance Optimization: 02-mobile-maui/performance-optimization.md
+          - Telemetry & Feature Flags: 02-mobile-maui/operations/telemetry-and-feature-flags.md
+          - Building & Linking App Packages: 02-mobile-maui/app-packaging-linking.md
+          - App Lifecycle: 02-mobile-maui/app-lifecycle.md
+      - Testing & Release Excellence:
+          - Testing Methodologies Playbook: 02-mobile-maui/testing-methods.md
+          - Testing & Quality Operating Model: 02-mobile-maui/testing-quality.md
+          - Testing Strategy Navigator: 02-mobile-maui/testing-strategies.md
+          - Visual Studio Workflow: 02-mobile-maui/vs-workflow.md
+          - Visual Studio Hot Restart: 02-mobile-maui/hot-restart-visual-studio.md
+          - VS Code Workflow: 02-mobile-maui/vscode-workflow.md
+          - VS Code Hot Restart: 02-mobile-maui/hot-restart-vscode.md
+          - CLI Workflow: 02-mobile-maui/cli-workflow.md
+          - To-Do App Tutorial: 02-mobile-maui/tutorials/todo-app.md
+          - Xamarin.Forms to .NET MAUI Migration: 02-mobile-maui/xamarin-to-maui.md
+          - Advanced Migration Playbook: 02-mobile-maui/migration-guide.md
+          - Migrating Custom Renderers: 02-mobile-maui/migration-custom-renderers.md
+  - DevOps & Quality Engineering:
+      - DevOps & Quality Overview: 04-devops/index.md
+      - SDLC & DevOps Lifecycle: 04-devops/sdlc-devops-lifecycle.md
+      - Build Health & Branch Policies: 04-devops/build-health-branch-policies.md
+      - CI/CD Toolbox: 04-devops/ci-cd-toolbox.md
+      - Code Quality Foundations: 04-devops/code-quality-foundations.md
+      - Static Analysis Toolbox: 04-devops/static-analysis-toolbox.md
+      - Runtime Failure Detection: 04-devops/failure-detection-runtime-tooling.md
+      - Pull Request Playbook: 04-devops/pull-request-playbook.md
+      - Azure DevOps Pipelines: 04-devops/azure-devops-pipelines.md
+      - CI with GitHub Actions: 04-devops/ci-with-github-actions.md
+      - Quality Gates: 04-devops/quality-gates.md
+      - Release Checklist: 04-devops/release-checklist.md
+  - Cloud Computing & Azure Services:
+      - Azure Playbook Overview: 05-cloud-azure/index.md
+      - Azure Fundamentals: 05-cloud-azure/azure-fundamentals.md
+      - Azure App Services Guide: 05-cloud-azure/app-services.md
+      - Notification Hubs: 05-cloud-azure/notification-hubs.md
+      - Azure Mobile Services Playbook: 05-cloud-azure/mobile-services-playbook.md
+      - Azure CLI Recipes: 05-cloud-azure/azure-cli-recipes/index.md
+  - Delivery & Store Operations:
+      - Delivery & Operations Overview: 06-delivery-operations/index.md
+      - Team Collaboration: 06-delivery-operations/team-collaboration.md
+      - Store Readiness Checklist: 06-delivery-operations/store-readiness.md
+      - Release Management & Feedback Loops: 06-delivery-operations/release-management.md
+      - Apple App Store Guide: 06-delivery-operations/submission-guides/apple-app-store.md
+      - Google Play Guide: 06-delivery-operations/submission-guides/google-play.md
+      - Microsoft Store Guide: 06-delivery-operations/submission-guides/microsoft-store.md
+  - Practitioner Toolbox:
+      - Practitioner Toolbox Overview: 07-practitioner-toolbox/index.md
+      - Git CLI Handbook: 07-practitioner-toolbox/cli-handbooks/git-cli-playbook.md
+      - dotnet CLI Handbook: 07-practitioner-toolbox/cli-handbooks/dotnet-cli-playbook.md
+      - PowerShell CLI Handbook: 07-practitioner-toolbox/cli-handbooks/powershell-cli-playbook.md
+      - Azure CLI Handbook: 07-practitioner-toolbox/cli-handbooks/azure-cli-playbook.md
+      - Node & npm Handbook: 07-practitioner-toolbox/cli-handbooks/node-cli-playbook.md
+      - Python CLI Handbook: 07-practitioner-toolbox/cli-handbooks/python-cli-playbook.md
+      - Windows Package Managers: 07-practitioner-toolbox/cli-handbooks/package-manager-playbook.md
+      - Unix Terminal Toolkit: 07-practitioner-toolbox/cli-handbooks/unix-terminal-playbook.md
+  - Mobile AI Blueprints:
+      - Blueprint Catalog (Coming Soon): 08-mobile-ai-blueprints/index.md
+      - Blueprint Authoring Template: 08-mobile-ai-blueprints/blueprint-template.md
+  - Developer Knowledge Base:
+      - Knowledge Base Overview: 09-knowledge-base/index.md
